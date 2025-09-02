@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+    padding: 20px;
+    color: #d2691e;
+}
+
+h1:hover{
+    color: dodgerblue;
+    transition: .2s;
+}
+button{
+    padding: 10px 20px;
+    background: orange;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+p{
+    font-size: 18px;
+    color: dodgerblue;
+}
