@@ -56,5 +56,50 @@ const myString = 'I love coding in javascript';
 const replacedString = myString.replace('javascript', 'python');
 console.log(replacedString);
 
+// operational parameters
+// sometimes parameters are optional: example the array join() functions parameter.
+
+const myArray = ['I', 'love', 'chocolate', 'frogs'];
+const madeAString = myArray.join(' ');
+console.log(madeAString);
+
+const madeAnotherString = myArray.join();
+console.log(madeAnotherString); // If no parameter is included to specify a joining/delimiting character, a comma is used by default.
 
 
+// Anonymous functions and arrow functions:
+(function (){ // function that doesn't have a name is called anonymous function
+    alert('Hi');
+});
+
+
+// logkey() function can pass an anonymous function into addEventListener.
+/* textBox.addEventListener('keydown', function (event) {
+    console.log(`You pressed '${event.key}'.`);
+}); */
+
+// Arrow function
+// There is an alternative form you can use called arrow functions which omits the
+// parentheses around the parameter:
+/* textBox.addEventListener('keyword', event => {
+    console.log(`You pressed '${event.key}'.`);
+ }); */
+
+
+// The map() method of Array instances creates a new array populated with the results of calling a 
+// provided function on every element in the calling array.
+
+const originals = [1, 2, 3];
+
+const doubled = originals.map(item => item * 2);
+
+console.log(doubled);
+
+// the above example is similar to:
+/*
+    function doubleItem(item) {
+        return 1tem * 2;
+    }
+*/
+
+// Playing with scope

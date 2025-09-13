@@ -45,3 +45,7 @@ button:hover{
     background: grey;
     transition: .2s
 }
+#textBox{
+    height: 100px;
+    padding: 10px;
+}
