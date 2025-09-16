@@ -46,7 +46,8 @@ btn.addEventListener('click', draw);
 myFunction();*/ // calls the function once
 
 // Functions Parameters
-// Some functions require parameters to be specified when you are invoking them other like browser built-in Math.random(); functions doesnt require any parameters.
+// Some functions require parameters to be specified when 
+// you are invoking them other like browser built-in Math.random(); functions doesnt require any parameters.
 const myNumber = Math.random();
 console.log(myNumber); // returns between 0 and 1.
 
@@ -64,7 +65,8 @@ const madeAString = myArray.join(' ');
 console.log(madeAString);
 
 const madeAnotherString = myArray.join();
-console.log(madeAnotherString); // If no parameter is included to specify a joining/delimiting character, a comma is used by default.
+console.log(madeAnotherString); // If no parameter is included to 
+// specify a joining/delimiting character, a comma is used by default.
 
 
 // Anonymous functions and arrow functions:
@@ -86,7 +88,8 @@ console.log(madeAnotherString); // If no parameter is included to specify a join
  }); */
 
 
-// The map() method of Array instances creates a new array populated with the results of calling a 
+// The map() method of Array instances creates a new array 
+// populated with the results of calling a 
 // provided function on every element in the calling array.
 
 const originals = [1, 2, 3];
@@ -102,4 +105,285 @@ console.log(doubled);
     }
 */
 
-// Playing with scope
+// Playing with scope: see function-scope.html
+
+// Return Values: see function-library.html
+
+// functions-basics
+
+/*function greetMessage(){
+    alert('Hello you!');
+}*/
+
+// Local variables
+
+/*function showMessage(){
+    let message = 'I love Javascript';
+    alert(message);
+}
+showMessage() */
+// alert(message) // Error, the variable is local to the function
+
+// Outer variables
+
+/*const userName = 'Alice';
+function messageShow(){
+    let message = 'Hello ' + userName;
+    alert(message);
+}
+
+messageShow();*/
+
+// the outer one is ignored
+let userName = 'Ochieng'
+function greetMessage(){
+    let userName = 'Achaba';
+    let message = 'Hello ' + userName;
+    alert(message);
+}
+// greetMessage(); 
+
+/* *******Variables declared outside of any function, 
+such as the outer userName in the code above, are called global.********* */
+
+// Parameters part II
+// We can pass arbitrary data to functions using parameters.
+
+/*function param(from, text){
+    alert(from + ': ' + text);
+}
+param('Ann', 'Hello');
+param('Ann', 'Welcome');
+
+*/
+
+function mul(num1, num2){
+    return num1 * num2;
+}
+console.log(mul(20, 50));
+
+
+function showMessage2 (from, text){
+    from = '*' + from + '*';
+
+    alert (from + ': ' + text);
+}
+
+//let from = 'Ann';
+
+//showMessage2(from, ' Hello');
+
+//alert(from);
+
+// Default values
+// If a function is called, but an argument is not provided, 
+// then the corresponding value becomes undefined
+// example -> showMessage2('Ann'); this will output undefined.
+
+
+// We can specify the so-called “default” (to use if omitted)
+// value for a parameter in the function declaration, using =:
+ function showMessage3(from, text = 'no text given'){
+    alert(from + ': ' + text);
+ }
+ //showMessage3('Ann', undefined);
+
+ // Returning a value
+
+ function sub(a, b){
+    return a - b;
+ }
+ let result = sub(4, 1);
+ //alert(result);
+
+ // There may be many occurrences of return in a single function. For instance:
+
+function checkAge(age){
+    if (age >= 18){
+        return true;
+    } else {
+        return confirm('Do you have permission from your parents?')
+    }
+}
+
+/*let age = prompt('How old are you?', 18);
+
+if (checkAge(age)){
+    alert('Access granted');
+} else {
+    alert('Access denied!')
+} */
+
+// It is possible to use return without a value. 
+// That causes the function to exit immediately.
+
+function showMovie(age){
+    if (!checkAge(age)) {
+        return;
+    }
+    alert('Showing you the movie');
+}
+// An empty return is also the same as return undefined
+
+// using a question mark operator
+
+function checkAge2(age){
+    // return (age > 18) ? true : confirm('Did your parents allow you?');
+}
+
+// Using || (OR) operator
+
+function checkAge3(age){
+   // return (age > 18) || confirm('Did your parents allow you?');
+}
+
+// Exercise: a function that returns min(a,b);
+
+function min(a, b){
+    return a < b ? a : b;
+}
+
+
+function sayHiToMe(){  // This is function declaration
+    alert('Hello');
+}
+
+// Function expressions: allows us to create a new function in 
+// the middle of any expression
+
+let sayHi = function(){
+    alert('Hello');
+};
+
+// Function is a value: No matter how the function is created, a function is a value.
+
+function sayHiToMeToo(){
+    alert('Heloo too');
+}
+alert(sayHiToMeToo);
+
+// We can copy a function to another variable
+
+function sayHiToThem(){
+    alert('Hello guys');
+}
+let func = sayHiToThem;
+
+//func();
+//sayHiToThem();
+
+// using a Function Expression to declare the above code
+
+function sayHiExpression(){
+    alert('Hello expression');
+};
+//let func2 = sayHiExpression; // everything would work the same.
+
+// Callback functions: passing functions as values and using 
+// function expressions.
+// The arguments showOk and showCancel of ask are called 
+// callback functions or just callbacks.
+
+function ask(question, yes, no){
+    if (confirm(question)) yes()
+        else no();
+}
+function showOk(){
+    alert('You agreed');
+}
+function showCancel(){
+    alert('You canceled the execution');
+}
+
+//ask('Do you agree?', showOk, showCancel);
+
+// We could use functions expressions to write shorter equivalent functions
+
+function ask2(question, yes, no){
+    if (confirm(question)) yes()
+        else no();
+}
+ask2(
+    'Do you agree?',
+    function() {alert('You agreed.');},
+    function() {alert('You canceled the execution.');}
+);
+
+// Difference between function declaration and function expressions
+// Function declaration: declared as a separate statement, 
+// in the main code flow:
+
+function sum(a, b){
+    return a + b;
+}
+
+// Function Expression:
+let sum2 = function(a, b){
+    return a + b;
+};
+sum2(2, 3);
+
+// function declarations support global variables while function 
+// expressions throws an error!
+
+// sayHiJohn('John'); // error!
+
+let sayHiJohn = function(name){
+    alert(`Hello, ${name}`);
+};
+
+// In strict mode, when a Function Declaration is within a code block, it’s visible 
+// everywhere inside that block. But not outside of it.
+
+// let myAge = prompt('What is your age?', 30);
+
+// conditionally declare a function
+
+/*if (age < 18){
+    function Welcome(){
+        alert('Hello');
+    }
+} else {
+    function Welcome(){
+        alert('Greetings');
+    }
+}
+
+Welcome(); 
+*/
+
+// using it later results to error!
+// That’s because a Function Declaration is only visible 
+// inside the code block in which it resides.
+
+
+// So what do we do to make welcome visible outside of if?
+// That is where function expressions comes in.
+
+let secondAge = prompt('What is your age?', 30);
+
+let welcome;
+
+if (secondAge < 18){
+    welcome = function(){
+        alert('Hello')
+    }
+} else {
+    welcome = function(){
+        alert('Greetings');
+    };
+}
+welcome(); // very much okay.
+
+/********* OR********************************/
+
+/********* Simplyfy using ? operator***********/
+
+let ageAchaba = prompt('What is your age?');
+
+let welcome2 = (ageAchaba < 18) ? 
+
+function() {alert('Hello');} :
+function() {alert('Greetings');};
+
+welcome2();
