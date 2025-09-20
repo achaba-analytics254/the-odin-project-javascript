@@ -321,7 +321,7 @@ function sum(a, b){
 let sum2 = function(a, b){
     return a + b;
 };
-sum2(2, 3);
+// sum2(2, 3);
 
 // function declarations support global variables while function 
 // expressions throws an error!
@@ -373,7 +373,7 @@ if (secondAge < 18){
         alert('Greetings');
     };
 }
-welcome(); // very much okay.
+// welcome(); // very much okay.
 
 /********* OR********************************/
 
@@ -386,4 +386,82 @@ let welcome2 = (ageAchaba < 18) ?
 function() {alert('Hello');} :
 function() {alert('Greetings');};
 
-welcome2();
+// welcome2();
+
+// If the function is declared as a separate statement in the main code flow, 
+// that’s called a “Function Declaration”.
+
+// If the function is created as a part of an expression, 
+// it’s called a “Function Expression”.
+
+
+/*------------ Arrow functions -----------------*/
+
+let sum3 = (a, b) => a + b;
+
+// the above code is similar to
+
+/*
+    let sum = function(a, b){
+        return a + b;
+    };
+*/
+// alert(sum3(1, 2));
+
+// If we have only one argument, then parentheses around parameters can 
+// be omitted, making that even shorter.
+
+let double = n => n * 2; // same as let double = function(n){ return n * 2}
+// alert(double(3));
+
+// Arrow functions can be used in the same way as Function Expressions
+
+let yourAge = prompt('What is your age?');
+
+let comeIn = (yourAge < 18) ?
+() => alert('Hi') :
+() => alert('Whats up!');
+
+// comeIn();
+
+// Multiline arrow functions
+
+let sum4 = (a, b) => { // the curly brace opens a multiline function
+    let result2 = a + b;
+    return result2; // if we use curly braces, then we need an explicit "return"
+};
+// alert(sum4(5, 6));
+
+// Javascript call stack
+// A call stack is a way for the JavaScript engine to keep track of 
+// its place in code that calls multiple functions.
+
+function add(a, b){
+    return a + b;
+}
+
+function average(a, b){
+    return add(a, b) / 2;
+}
+
+let x = average(10, 20);
+
+// Stack Overflow
+
+// If the number of execution contexts exceeds the size of the stack, 
+// a stack overflow error will occur.
+
+function fn(){
+    fn();
+}
+fn(); // stack overflow will occur
+
+
+/*************** Asynchronous JavaScript ****************/
+
+// JavaScript is a single-threaded programming language. 
+// This means that the JavaScript engine has only one call stack. 
+// Therefore, it only can do one thing at a time.
+
+// When executing a script, the JavaScript engine executes code from top to bottom, 
+// line by line. In other words, it is synchronous.
