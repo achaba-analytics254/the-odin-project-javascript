@@ -309,7 +309,7 @@ if (browser === 'Edge'){
 }
 console.log(browser);*/
 
-let b = +prompt('a?', '');
+/* let b = +prompt('a?', '');
 
 switch (b){
     case 0:
@@ -322,4 +322,4 @@ switch (b){
     case 3:
         alert('2, 3');
         break;
-}
+} */
