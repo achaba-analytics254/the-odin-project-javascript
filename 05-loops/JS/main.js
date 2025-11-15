@@ -110,3 +110,64 @@ while (i < cats6.length){
     i++;
 }
 console.log(myFavoriteCats);
+
+// second 'while' loops
+
+/*let k = 0;
+while (k < 3){
+    console.log(k);
+    k++;
+}*/
+
+
+//The 'do...while' loop
+
+//let j = 0;
+//do{
+    //alert(j);
+    //j++
+//} while(j <= 3);
+
+//------------- skipping parts---------------------//
+/*let j = 0;
+for (; j < 3; j++){
+    console.log(j)
+}*/
+
+// removing the step part
+/*let k = 0;
+for(; k < 3;){
+    alert(k++);
+}*/
+
+// creating an infinite loop by removing everything
+/*for(;;){
+  
+}*/
+
+//---------------Breaking the loop-----------------//
+
+let sum = 0;
+while(true){
+    let value = +prompt('Enter a number', '');
+    if (!value) break;
+    sum += value;
+}
+console.log('Sum: ' + sum);
+
+//---------continue to the next iteration-------//
+// odd numbers
+for (let z = 0; z <= 10; z++){
+    if (z % 2 === 0) continue; console.log(z);
+}
+
+//------Labels for break/continue-----------//
+
+outer: 
+for (let c = 0; c < 3; c++){
+    for (let y = 0; y < 3; y++){
+        let input = prompt(`value at coords (${c}, ${y})`, '');
+        if (!input) break outer;
+    }
+}
+console.log('Done!')
