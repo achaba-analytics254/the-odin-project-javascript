@@ -211,9 +211,85 @@ let ourFruits = ['Apples', 'Mangoes', 'Apples']
 
 let users = [
     {id: 1, name: 'Achaba'},
-    {id: 1, name: 'John'},
-    {id: 1, name: 'Peter'},
+    {id: 2, name: 'John'},
+    {id: 3, name: 'Peter'},
+    {id: 4, name: 'Simon'},
+    {id: 4, name: 'John'},
 ];
 
 let user = users.find(item => item.id == 1);
 console.log(user.name);
+
+// The arr.findLastIndex method is like findIndex, but searches from 
+// right to left, similar to lastIndexOf.
+
+console.log(users.findIndex(user => user.name == 'John')); // first John index
+console.log(users.findLastIndex(user => user.name == 'John')); // last john index
+
+
+//---------------filter------------------------------//
+// The syntax is similar to find, but filter returns an array of all matching 
+// elements:
+
+let users2 = [
+    {id: 1, name: 'Mike'},
+    {id: 2, name: 'Mary'},
+    {id: 3, name: 'John'},
+];
+
+// returns array of the first two users
+
+let someUsers = users2.filter(item => item.id < 3);
+console.log(someUsers.length);
+
+//----------------Transform an array----------------------//
+// Methods that transform and reorder an array.
+
+//----------------map-------------------------//
+// It calls the function for each element of the array and returns the 
+// array of results.
+
+// transforming each element into its length:
+
+let lengths = ['Achaba', 'John', 'Salim'].map(item => item.length);
+console.log(lengths);
+
+//---------------sort(fn)-------------------------//
+// sorts the array in place, changing its element order.
+
+let arr9 = [1, 2, 15];
+arr9.sort()
+console.log(arr9); // The items are sorted as strings by default.
+
+// using our own sorting order, we need to supply a function as the argument 
+// of arr.sort().
+
+// to sort as numbers:
+
+let compareNumeric = (a, b) => {
+    if (a > b) return 1;
+    if (a == b) return 0;
+    if (a < b) return 1;
+}
+let arr11 = [1, 2, 15];
+arr11.sort(compareNumeric);
+console.log(arr11);
+
+// if we ever want to know which elements are compared – nothing prevents 
+// us from alerting them:
+
+/*[1, -2, 15, 2, 0, 8].sort(function(a, b){
+    console.log(a + ' <> ' + b);
+    return a - b;
+}); // see Javascript.info/array-methods*/
+
+// Arrow functions for neater sorting
+
+arr11.sort((a, b) => a - b);
+
+//----------------Use localeCompare for strings-------------------//
+// For many alphabets, it’s better to use str.localeCompare method to correctly 
+// sort letters, such as Ö.
+
+let countries = ['Österreich', 'Andora', 'Vietnam'];
+
