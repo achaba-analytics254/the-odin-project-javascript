@@ -292,4 +292,69 @@ arr11.sort((a, b) => a - b);
 // sort letters, such as Ö.
 
 let countries = ['Österreich', 'Andora', 'Vietnam'];
+console.log(countries.sort((a, b) => a > b ? 1 : -1));
+
+//reverse
+
+let reverseArr = [1, 2, 3, 4, 5];
+arr.reverse();
+console.log(reverseArr);
+
+
+//split and join
+
+let names = 'Bilbo, Gandalaf, Achaba';
+let arr12 = names.split(', ');
+
+for (let name of arr12){
+    console.log(`A message to ${names}.`);
+}
+
+let arr13 = 'John, Mary, Eric, Susan'.split(', ', 2) //limit of the array
+console.log(arr13);
+
+//split    letters
+
+let str = 'test'
+console.log(str.split(''));
+
+//arr join(glue)
+let arr14 = ['Mary', 'John', 'Hanna', 'Tom'];
+let str2 = arr14.join(';');
+console.log(str2);
+
+//reduce/reduceRight
+//When we need to iterate over an array – we can use forEach, for or for..of.
+// BUT this one too 
+
+let arr15 = [1, 2, 3, 4, 5];
+let result2 = arr15.reduce((sum, current) => sum + current, 0);
+console.log(result2);
+
+//thisArg
+
+let army = {
+    minAge: 18,
+    maxAge: 27,
+    canJoin(user){
+        return user.age >= this.minAge && user.age < this.maxAge;
+    }
+};
+
+let users3 = [
+    {age: 16},
+    {age: 20},
+    {age: 23},
+    {age: 30},
+];
+
+//find users who army.canJoin returns true
+/*let soldiers = users3.filter(army.canJoin, army);
+
+console.log(soldiers.length);
+console.log(soldiers[0].age);
+console.log(soldiers[1].age);*/
+
+
+
 
